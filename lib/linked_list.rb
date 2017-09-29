@@ -35,6 +35,25 @@ class LinkedList
     end
   end
 
+  def to_s
+    result = []
+    current = @head
+
+    while current and current.next != nil
+      result << current.info
+      current = current.next
+    end
+    result << current.info if current
+    return "LinkedList(#{result.join(', ')})"
+  end
+
+
+  def insert
+  end
+
+  def delete_at(index)
+  end
+
 
 
 end
