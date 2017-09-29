@@ -20,13 +20,19 @@ class LinkedList
   end
 
   def [](index)
-    elements = []
-    index = @head
-    while index.next != nil
-      elements << index
-      index = index.next
+    if index == 0
+      return @head
+    else
+      node = @head
+      index.times do
+        unless node.nil?
+          node = node.next
+        else
+          return nil
+        end
+      end
+      return node
     end
-    elements << index
   end
 
 
