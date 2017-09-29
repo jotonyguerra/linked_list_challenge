@@ -5,4 +5,8 @@ class Node
     self.info = info
     self.next = next_node
   end
+
+  def next_node
+    self.next 
+  end
 end

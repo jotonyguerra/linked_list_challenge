@@ -104,6 +104,9 @@ class LinkedList
     end
   end
 
+  def next_node
+  end
+
 
 
 end
