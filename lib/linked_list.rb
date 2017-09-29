@@ -10,7 +10,7 @@ class LinkedList
     node = @head
 
     while !node.nil?
-      yield(node.info)
+      yield(node)
       node = node.next
     end
   end
