@@ -48,10 +48,23 @@ class LinkedList
   end
 
 
-  def insert
+  def insert(index, value)
+    current = @head
+    if index == 0
+      prepend(value)
+    else
+      (index - 1).times do
+        raise "List not long enough" if current.nil?
+        current = current.next
+      end
+    end
+    new_node = Node.new(value)
+    new_node.next = current.next
+    current.next = new_node
   end
 
-  def delete_at(index)
+  def remove
+    
   end
 
 
