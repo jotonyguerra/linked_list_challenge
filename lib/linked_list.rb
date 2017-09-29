@@ -1,9 +1,27 @@
 require 'pry'
 require_relative 'node'
 
+
 class LinkedList
+  attr_accessor :head, :tail
   def initialize
     @head = nil
+    @tail = nil
+  end
+
+  def empty?
+    @head.nil? && @tail.nil?
+  end
+
+  def size
+    return 0 if @head.nil?
+    tmp = @head
+    count = 0
+    until tmp.nil?
+      tmp = tmp.next
+      count += 1
+    end
+    count
   end
 
   def each
@@ -63,8 +81,27 @@ class LinkedList
     current.next = new_node
   end
 
-  def remove
-    
+  def remove(index)
+    return nil if @head.nil? || index > self.size - 1
+    if index == 0
+      @head = @head.next
+    else
+      cur = @head
+      prev = nil
+      index.times do
+        prev = cur
+        cur = cur.next
+      end
+      prev.next = cur.next
+    end
+  end
+
+  def find(value)
+    current_node = @head
+    while current_node != nil
+      return current_node if current_node.value == value
+      current_node = current_node.next
+    end
   end
 
 
